@@ -18,14 +18,35 @@ LESS version started by Kate Green 8/2012
 
 /* Variables */
 @one-em: 10px;
-@15-em: @one-em * 1.5;
-@60-em: @one-em * 0.6;
+@default-font-size: @one-em * 1.2;
 
-@background: #F1F1D9;
-@row2-background: #E5E3C3;
+@bg: #F1F1D9;
+@row1-bg: #E7E5CB;
+@row2-bg: #E5E3C3;
+@row3-bg: #000;
+@row4-bg: #000;
+@row5-bg: #000;
+@hover-bg: #444;
 @pending-color: #948E7E;
+@hover-color: #F5EED8;
 @border: #BAB3A1;
-@blue: #000066;
+@text-color: #000066;
+
+@default-tab-padding: @one-em * 1.5;
+.default-tab-border (@bg) {
+	border-left: @one-em * .1 solid @bg;
+	border-right: @one-em * .1 solid @bg;
+}
+@default-border-radius: @one-em * .6;
+
+// Basic tab style to be used below
+.basic-tab (@bg: #F4F4E0) {
+	background: @bg;
+	color: @text-color;
+
+	border: @one-em * .1 solid @border;
+	border-bottom: none;
+}
 
 /*--------------------------------------------
  * BODY
@@ -42,7 +63,6 @@ body {
 	/* These only affect the look and feel of the site. */
 	margin:0;
 	padding:0;
-	font-family: Arial, "MS Trebuchet", sans-serif;
 }
 
 
@@ -56,7 +76,7 @@ and then to mainTabs and subRows, and from subRows to the child ULs.
 zTabs uses a UL's width when calculating out how many
 tabs it can show at once. */
 
-
+// K: set in regular css
 /* Normal pageWrapper */
 #pageWrapper {
 	width: @one-em * 89;
@@ -67,7 +87,7 @@ body.fullwidth #pageWrapper {
 	width:auto;
 }
 
-#tabNavigation {
+#nav {
 
 	/* tabNavigation contains zTabs' ULs, which are floated (see below). 
 	By setting overflow hidden, tabNavigation WON'T collapse around the floated ULs,
@@ -124,11 +144,10 @@ ul.zTabs {
 	height: @one-em * 2.4;
 
 	/* Purely cosmetic styles. */
-	background-color: @background;
+	background-color: @bg;
 	border-bottom: @one-em * .1 solid @border; 
 
 	/* This puts some space between the edges and the tabs. */
-	padding-left: @one-em * 2;	
 	padding-top: @one-em * .7;
 
 	/* Fixes an IE9 problem, where row1 tabs hang down on top of the next row */
@@ -141,7 +160,7 @@ ul.currentSubTabs {
 
 	/* This is our default background. We'll use specific BGs for 
 	rows 1 and 2 below. */
-	background-color: @background; /* url('../images/third_row_bg.gif') no-repeat top left; */
+	background-color: @bg; /* url('../images/third_row_bg.gif') no-repeat top left; */
 }
 
 
@@ -151,9 +170,10 @@ ul.row1 {
 	/* This sits on top of tabNavigation's bg, and forms the left corner
 	of the .row1 background. *
 	background: url('../images/menu_bar_left.gif') no-repeat top left; */
+	background-color: @row1-bg;
 } 
 ul.row2 {
-	background-color: @row2-background; /* url('../images/second_row_bg.gif') no-repeat top left;*/
+	background-color: @row2-bg; /* url('../images/second_row_bg.gif') no-repeat top left;*/
 } 
 ul.row3, 
 ul.row4, 
@@ -205,31 +225,30 @@ ul.zTabs span {
 
 	/* Tabs normally consist of only one anchor, with just text. Tabs with 
 	more than one anchor (e.g. with buttons) are handled in a style below. */
-	padding-left: @15-em;
-	padding-right: @15-em;
+	padding-left: @default-tab-padding;
+	padding-right: @default-tab-padding;
 
 	/* These are essentially placeholder borders, they'll be replaced
 	if the tabs become active (current, overflow, etc.) */
-	border-left:0.1000em solid transparent;
-	border-right:0.1000em solid transparent;
+	.default-tab-border (transparent);
 
 	/* Rounded corners */
-	-moz-border-radius-topleft: @60-em;
-	-moz-border-radius-topright: @60-em;
-	-webkit-border-top-left-radius: @60-em;
-	-webkit-border-top-right-radius: @60-em;
-	border-top-left-radius: @60-em;
-	border-top-right-radius: @60-em;
+	-moz-border-radius-topleft: @default-border-radius;
+	-moz-border-radius-topright: @default-border-radius;
+	-webkit-border-top-left-radius: @default-border-radius;
+	-webkit-border-top-right-radius: @default-border-radius;
+	border-top-left-radius: @default-border-radius;
+	border-top-right-radius: @default-border-radius;
 
 	/* Font stuff */
 	text-align: center;
-	color: @blue;
+	color: @text-color;
 	text-decoration: none;
 
 	/* Because we want our em calculations to be as simple as possible, if
 	we have to adjust our font sizes, we try to do it where it will cause us
 	as little trouble as possible (i.e. elements which aren't usually parents) */
-	font-size: @one-em * 1.2;		
+	font-size: @default-font-size;		
 }
 
 
@@ -250,15 +269,15 @@ Generally, tabs which are being hovered over get some special treatment.
 When we have a span instead of an anchor, it should still behave like an anchor. */
 ul.zTabs li:hover a,
 ul.zTabs li:hover span {
-	color:#444444;
-	background-color: #F5EED8; /*url('../images/menu_bar_background_highlight.gif') repeat-x bottom;*/
+	color: @hover-bg;
+	background-color: @hover-color; /*url('../images/menu_bar_background_highlight.gif') repeat-x bottom;*/
 	cursor:pointer;
 }
 
 /* There are a few cases where a tab should have its hover styles turned off */
 ul.zTabs li.disableHover:hover a,
 ul.zTabs li.disableHover:hover span {
-	color: @blue;
+	color: @text-color;
 	background: none;
 }
 
@@ -286,15 +305,6 @@ from overflow. */
 /*--------------------------------------------
  * CURRENT TAB (NO SUBROWS)
  *--------------------------------------------*/
-
-// Basic tab style to be used below
- .basic-tab (@background: #F4F4E0) {
- 		background: @background;
-		color: @blue;
-
-		border: @one-em * .1 solid @border;
-		border-bottom: none;
-	}
 
 ul.zTabs li.current a,
 ul.zTabs li.current span,
@@ -334,7 +344,7 @@ ul.zTabs.row1 li.overflowCurrentWithSecondRow span {
 	By specifying background instead of background-color, and placing this below
 	the hover style, we can ensure that only non-"active" tabs change BGs when
 	hovered over. */
-	background: #E7E5CB;
+	background: @row1-bg;
 }
 
 /*--------------------------------------------
