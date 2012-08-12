@@ -26,26 +26,31 @@ LESS version started by Kate Green 8/2012
 @row3-bg: #000;
 @row4-bg: #000;
 @row5-bg: #000;
-@hover-bg: #444;
+@hover-bg: #F5EED8;
 @pending-color: #948E7E;
-@hover-color: #F5EED8;
+@hover-color: #444;
 @border: #BAB3A1;
 @text-color: #000066;
 
+// I use this only in @default-tab-padding since it comes with
+// a variable attached.
+@default-border: (@one-em * .1) solid @bg;
+
+// Default styles that are used throughout
 @default-tab-padding: @one-em * 1.5;
 .default-tab-border (@bg) {
-	border-left: @one-em * .1 solid @bg;
-	border-right: @one-em * .1 solid @bg;
+	border-left: @default-border;
+	border-right: @default-border;
 }
 @default-border-radius: @one-em * .6;
 
 // Basic tab style to be used below
-.basic-tab (@bg: #F4F4E0) {
+.basic-tab (@bg: #F4F4E0, @color: @text-color) {
 	background: @bg;
-	color: @text-color;
-
+	color: @color;
 	border: @one-em * .1 solid @border;
 	border-bottom: none;
+	height: @one-em * 2.4;
 }
 
 /*--------------------------------------------
@@ -87,7 +92,8 @@ body.fullwidth #pageWrapper {
 	width:auto;
 }
 
-#nav {
+// K: I am adding both since I like #nav better. 
+#nav, #tabNaviation {
 
 	/* tabNavigation contains zTabs' ULs, which are floated (see below). 
 	By setting overflow hidden, tabNavigation WON'T collapse around the floated ULs,
@@ -269,16 +275,14 @@ Generally, tabs which are being hovered over get some special treatment.
 When we have a span instead of an anchor, it should still behave like an anchor. */
 ul.zTabs li:hover a,
 ul.zTabs li:hover span {
-	color: @hover-bg;
-	background-color: @hover-color; /*url('../images/menu_bar_background_highlight.gif') repeat-x bottom;*/
+	.basic-tab (@hover-bg, @hover-color);
 	cursor:pointer;
 }
 
 /* There are a few cases where a tab should have its hover styles turned off */
 ul.zTabs li.disableHover:hover a,
 ul.zTabs li.disableHover:hover span {
-	color: @text-color;
-	background: none;
+	.basic-tab (none);
 }
 
 /*--------------------------------------------
