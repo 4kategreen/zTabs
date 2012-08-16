@@ -20,14 +20,14 @@ LESS version started by Kate Green 8/2012
 @one-em: 10px;
 @default-font-size: @one-em * 1.2;
 
-@bg: #F1F1D9;
-@row1-bg: #E7E5CB;
-@row2-bg: #E5E3C3;
+@bg: #F1F1D9; // current subrows
+@row1-bg: darken(@bg, 10%);
+@row2-bg: darken(@bg, 20%);
 @row3-bg: #000;
 @row4-bg: #000;
 @row5-bg: #000;
-@hover-bg: #F5EED8;
-@pending-color: #948E7E;
+@hover-bg: darken(@bg, 30%);
+@pending-color: darken(@hover-color, 30%);
 @hover-color: #444;
 @border: #BAB3A1;
 @text-color: #000066;
