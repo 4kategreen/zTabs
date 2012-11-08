@@ -6,70 +6,13 @@
 
 The styles below are the core styles which contribute to the look and 
 feel for zTabs, at least for the styling approach we've taken. zTabs is
-pretty flexible, and can accomodate a lot of different styling decisions.
+pretty flexible, and can accommodate a lot of different styling decisions.
 
 The other styles (background images, theme specific, etc.) are in the 
 theme.css file.
 
 -CWS Jun 07, 2011
-
-LESS version started by Kate Green 8/2012
 */
-
-/* Customizable Variables */
-@one-em: 13px;
-@default-font-size: @one-em * 1.2;
-@bg: #87cbde; // current subrows
-@text-color: #ffffff;
-@tab-rows: 1;
-
-/* Other Variables */
-// These depend on the above variables.
-@row1-bg: darken(@bg, 10%);
-@row2-bg: darken(@bg, 20%);
-@row3-bg: #000;
-@row4-bg: #000;
-@row5-bg: #000;
-@hover-bg: darken(@bg, 15%);
-@pending-color: darken(@hover-color, 30%);
-@hover-color: lighten(@text-color, 90%);
-@border: #BAB3A1;
-@row-height: @one-em * 2.4;
-
-// I use this only in @default-tab-padding since it comes with
-// a variable attached.
-@default-border: (@one-em * .1) solid @bg;
-
-// Default styles that are used throughout
-@default-tab-padding: @one-em * 1.5;
-.default-tab-border (@bg) {
-	border-left: @default-border;
-	border-right: @default-border;
-}
-@default-border-radius: @one-em * .6;
-
-// Three stop color gradient
-.three-step-gradient(@color) {
-	@mid-color: lighten(@color, 15%);
-	@light-color: lighten(@color, 30%);
-	background: @color; /* Old browsers */
-	background: -moz-linear-gradient(top, @light-color 0%, @mid-color 40%, @color 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@light-color), color-stop(40%,@mid-color), color-stop(100%,@color)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, @light-color 0%,@mid-color 40%,@color 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, @light-color 0%,@mid-color 40%,@color 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, @light-color 0%,@mid-color 40%,@color 100%); /* IE10+ */
-	background: linear-gradient(to bottom, @light-color 0%,@mid-color 40%,@color 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@light-color', endColorstr='@color',GradientType=0 ); /* IE6-9 */
-}
-
-// Basic tab style to be used below
-.basic-tab (@bg: @bg, @color: @text-color) {
-	background: @bg;
-	color: @color;
-	border: @one-em * .1 solid @border;
-	border-bottom: none;
-	height: @row-height;
-}
 
 /*--------------------------------------------
  * BODY
@@ -81,11 +24,12 @@ Basic body styles which significantly affect look of the page. */
 body {
 	/* Setting the font-size here simplifies initial em 
 	calculations, with 10px = 1em */
-	font-size: @one-em;
+	font-size: 62.5%;
 
 	/* These only affect the look and feel of the site. */
 	margin:0;
 	padding:0;
+	font-family: Arial, "MS Trebuchet", sans-serif;
 }
 
 
@@ -99,10 +43,10 @@ and then to mainTabs and subRows, and from subRows to the child ULs.
 zTabs uses a UL's width when calculating out how many
 tabs it can show at once. */
 
-// K: set in regular css
+
 /* Normal pageWrapper */
 #pageWrapper {
-	width: @one-em * 89;
+	width: 89em;
 }
 
 /* pageWrapper which spans the entire width of a browser window */
@@ -110,25 +54,19 @@ body.fullwidth #pageWrapper {
 	width:auto;
 }
 
-// K: I am adding both since I like #nav better. 
-#nav, #tabNaviation {
+#tabNavigation {
 
 	/* tabNavigation contains zTabs' ULs, which are floated (see below). 
 	By setting overflow hidden, tabNavigation WON'T collapse around the floated ULs,
 	and we avoid any additional markup in our HTML. (e.g. a div with 'clear:left') */
 	overflow: hidden;
-	// make the height of the nav area flexible to the number of rows. 
-	// kinda clunky cuz you have to edit it yourself. not sure a
-	// better way yet.
-	height: @tab-rows * (@row-height + (@one-em * .7));
+
 	
 	/* This is pretty much the "sliding doors" CSS technique, where two images 
 	(or the same image twice) sit partially on top of each other, but not entirely
 	so that one image peaks out from behind the other. See the .row1 style for 
-	the other half. 
-
-	K: I am pulling images for now.
-	background: url('../images/menu_bar.gif') no-repeat top right;*/
+	the other half. */
+	background: url('../images/menu_bar.gif') no-repeat top right;
 }
 
 /*--------------------------------------------
@@ -168,14 +106,15 @@ ul.zTabs {
 	is floated LIs. So we have to use width 100% and set the height if we 
 	want our ULs to not collapse.*/
 	width:100%;
-	height: @row-height;
+	height: 2.4em;
 
 	/* Purely cosmetic styles. */
-	background-color: @bg;
-	border-bottom: @one-em * .1 solid @border; 
+	background-color: #F1F1D9;
+	border-bottom: 0.1000em solid #BAB3A1; 
 
 	/* This puts some space between the edges and the tabs. */
-	padding-top: @one-em * .7;
+	padding-left:2em;	
+	padding-top: 0.7000em;
 
 	/* Fixes an IE9 problem, where row1 tabs hang down on top of the next row */
 	position:relative;
@@ -187,7 +126,7 @@ ul.currentSubTabs {
 
 	/* This is our default background. We'll use specific BGs for 
 	rows 1 and 2 below. */
-	background-color: @bg; /* url('../images/third_row_bg.gif') no-repeat top left; */
+	background: #F1F1D9 url('../images/third_row_bg.gif') no-repeat top left;
 }
 
 
@@ -195,12 +134,11 @@ ul.currentSubTabs {
 assigning each one a class which can be styled independently. */
 ul.row1 {
 	/* This sits on top of tabNavigation's bg, and forms the left corner
-	of the .row1 background. *
-	background: url('../images/menu_bar_left.gif') no-repeat top left; */
-	.three-step-gradient(@row1-bg);
+	of the .row1 background. */
+	background: url('../images/menu_bar_left.gif') no-repeat top left; 
 } 
 ul.row2 {
-	.three-step-gradient(@row2-bg); /* url('../images/second_row_bg.gif') no-repeat top left;*/
+	background: #E5E3C3 url('../images/second_row_bg.gif') no-repeat top left;
 } 
 ul.row3, 
 ul.row4, 
@@ -248,34 +186,35 @@ ul.zTabs a,
 ul.zTabs span {
 
 	display: block;
-	line-height: @one-em * 2;
+	line-height:2em;
 
 	/* Tabs normally consist of only one anchor, with just text. Tabs with 
 	more than one anchor (e.g. with buttons) are handled in a style below. */
-	padding-left: @default-tab-padding;
-	padding-right: @default-tab-padding;
+	padding-left: 1.5000em;
+	padding-right: 1.5000em;
 
 	/* These are essentially placeholder borders, they'll be replaced
 	if the tabs become active (current, overflow, etc.) */
-	.default-tab-border (transparent);
+	border-left:0.1000em solid transparent;
+	border-right:0.1000em solid transparent;
 
 	/* Rounded corners */
-	-moz-border-radius-topleft: @default-border-radius;
-	-moz-border-radius-topright: @default-border-radius;
-	-webkit-border-top-left-radius: @default-border-radius;
-	-webkit-border-top-right-radius: @default-border-radius;
-	border-top-left-radius: @default-border-radius;
-	border-top-right-radius: @default-border-radius;
+	-moz-border-radius-topleft: 0.6000em;
+	-moz-border-radius-topright: 0.6000em;
+	-webkit-border-top-left-radius: 0.6000em;
+	-webkit-border-top-right-radius: 0.6000em;
+	border-top-left-radius: 0.6000em;
+	border-top-right-radius: 0.6000em;
 
 	/* Font stuff */
 	text-align: center;
-	color: @text-color;
+	color: #000066;
 	text-decoration: none;
 
 	/* Because we want our em calculations to be as simple as possible, if
 	we have to adjust our font sizes, we try to do it where it will cause us
 	as little trouble as possible (i.e. elements which aren't usually parents) */
-	font-size: @default-font-size;		
+	font-size:1.2000em;		
 }
 
 
@@ -296,14 +235,16 @@ Generally, tabs which are being hovered over get some special treatment.
 When we have a span instead of an anchor, it should still behave like an anchor. */
 ul.zTabs li:hover a,
 ul.zTabs li:hover span {
-	.basic-tab (@hover-bg, @hover-color);
+	color:#444444;
+	background: #F5EED8 url('../images/menu_bar_background_highlight.gif') repeat-x bottom;
 	cursor:pointer;
 }
 
 /* There are a few cases where a tab should have its hover styles turned off */
 ul.zTabs li.disableHover:hover a,
 ul.zTabs li.disableHover:hover span {
-	.basic-tab (none);
+	color: #000066;
+	background: none;
 }
 
 /*--------------------------------------------
@@ -323,7 +264,7 @@ The tabs which have overflown aren't removed from the DOM, they're just hidden.
 overflow tab from changing widths when tabs are added or removed
 from overflow. */
 .overflowTab select {
-	width: @one-em * 7.2;
+	width: 7.200em;
 }
 
 
@@ -340,7 +281,11 @@ ul.zTabs li.overflowCurrent span {
 	By specifying background instead of background-color, and placing this below
 	the hover style, we can ensure that only non-"active" tabs change BGs when
 	hovered over. */
-	.basic-tab(white,#fcc000);
+	background: white;
+	color: #000066;
+
+	border: 0.1000em solid #BAB3A1;
+	border-bottom: none;
 }
 
 /*--------------------------------------------
@@ -356,7 +301,11 @@ ul.zTabs li.overflowCurrentWithSecondRow span {
 	By specifying background instead of background-color, and placing this below
 	the hover style, we can ensure that only non-"active" tabs change BGs when
 	hovered over. */
-	.basic-tab;
+	background: #F4F4E0;
+	color: #000066;
+
+	border: 0.1000em solid #BAB3A1;
+	border-bottom: none;
 }
 
 ul.zTabs.row1 li.currentWithSecondRow a,
@@ -369,7 +318,7 @@ ul.zTabs.row1 li.overflowCurrentWithSecondRow span {
 	By specifying background instead of background-color, and placing this below
 	the hover style, we can ensure that only non-"active" tabs change BGs when
 	hovered over. */
-	background: @row1-bg;
+	background: #E7E5CB;
 }
 
 /*--------------------------------------------
@@ -378,7 +327,7 @@ ul.zTabs.row1 li.overflowCurrentWithSecondRow span {
 
 Tabs which are currently loading get a class for visual differentiation. */
 ul.zTabs li.pending a {
-	color: @pending-color;
+	color:#948e7e;
 }
 
 /*--------------------------------------------
@@ -392,7 +341,7 @@ ul.zTabs li span.closeTabButton {
 	Tabs with buttons will need padding adjustments or the absolutely-positioned
 	buttons will overlap text. See closeTabText below. */
 	position:absolute;
-	left: @one-em * 1.6;
+	left:1.6000em;
 
 	/* The close button doesn't need a background, padding or borders like 
 	normal anchors and spans within tabs */
@@ -410,13 +359,13 @@ ul.zTabs li span.closeTabButton {
 
 ul.zTabs li a.closeTabButton img,
 ul.zTabs li span.closeTabButton img {
-	margin-top: @one-em * .5;
+	margin-top:0.5000em
 }
 
 ul.zTabs li a.closeTabText,
 ul.zTabs li span.closeTabText {
 	/* Extra padding to make room for the close button */
-	padding-left: @one-em * 2.8;
+	padding-left:2.800em;
 }
 
 /* This is only for IE8, really, and should be in the IE8 style sheet. */
