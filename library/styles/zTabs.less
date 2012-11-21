@@ -22,6 +22,7 @@ LESS version started by Kate Green 8/2012
 @bg: #87cbde; // current subrows
 @text-color: #ffffff;
 @tab-rows: 1;
+@gradient: true;
 
 /* Other Variables */
 // These depend on the above variables.
@@ -49,7 +50,7 @@ LESS version started by Kate Green 8/2012
 @default-border-radius: @one-em * .6;
 
 // Three stop color gradient
-.three-step-gradient(@color) {
+.three-step-gradient(@color) when (@gradient = true) {
 	@mid-color: lighten(@color, 15%);
 	@light-color: lighten(@color, 30%);
 	background: @color; /* Old browsers */
@@ -60,6 +61,9 @@ LESS version started by Kate Green 8/2012
 	background: -ms-linear-gradient(top, @light-color 0%,@mid-color 40%,@color 100%); /* IE10+ */
 	background: linear-gradient(to bottom, @light-color 0%,@mid-color 40%,@color 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@light-color', endColorstr='@color',GradientType=0 ); /* IE6-9 */
+}
+.three-step-gradient(@color) when (@gradient = false) {
+	// nothing
 }
 
 // Basic tab style to be used below
