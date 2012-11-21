@@ -24,33 +24,13 @@ ul.zTabs {
   float: left;
   width: 100%;
   height: 31.2px;
-  background-color: #87cbde;
+  background-color: #5fbbd3;
   border-bottom: 1.3px solid #BAB3A1;
   padding-top: 9.1px;
   position: relative;
 }
 ul.currentSubTabs {
-  background-color: #87cbde;
-}
-ul.row1 {
-  background: #5fbad3;
-  background: -moz-linear-gradient(top,#d7eef4 0%,#9bd4e4 40%,#5fbad3 100%);
-  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#d7eef4),color-stop(40%,#9bd4e4),color-stop(100%,#5fbad3));
-  background: -webkit-linear-gradient(top,#d7eef4 0%,#9bd4e4 40%,#5fbad3 100%);
-  background: -o-linear-gradient(top,#d7eef4 0%,#9bd4e4 40%,#5fbad3 100%);
-  background: -ms-linear-gradient(top,#d7eef4 0%,#9bd4e4 40%,#5fbad3 100%);
-  background: linear-gradient(to bottom,#d7eef4 0%,#9bd4e4 40%,#5fbad3 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@light-color',endColorstr='@color',GradientType=0);
-}
-ul.row2 {
-  background: #37a8c8;
-  background: -moz-linear-gradient(top,#afdce9 0%,#73c2d9 40%,#37a8c8 100%);
-  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#afdce9),color-stop(40%,#73c2d9),color-stop(100%,#37a8c8));
-  background: -webkit-linear-gradient(top,#afdce9 0%,#73c2d9 40%,#37a8c8 100%);
-  background: -o-linear-gradient(top,#afdce9 0%,#73c2d9 40%,#37a8c8 100%);
-  background: -ms-linear-gradient(top,#afdce9 0%,#73c2d9 40%,#37a8c8 100%);
-  background: linear-gradient(to bottom,#afdce9 0%,#73c2d9 40%,#37a8c8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@light-color',endColorstr='@color',GradientType=0);
+  background-color: #5fbbd3;
 }
 ul.zTabs li {
   margin: 0;
@@ -83,7 +63,7 @@ ul.zTabs li span {
 }
 ul.zTabs li:hover a,
 ul.zTabs li:hover span {
-  background: #4bb1ce;
+  background: #2c88a0;
   color: #ffffff;
   border: 1.3px solid #BAB3A1;
   border-bottom: none;
@@ -118,7 +98,7 @@ ul.zTabs li.currentWithSecondRow a,
 ul.zTabs li.currentWithSecondRow span,
 ul.zTabs li.overflowCurrentWithSecondRow a,
 ul.zTabs li.overflowCurrentWithSecondRow span {
-  background: #87cbde;
+  background: #5fbbd3;
   color: #ffffff;
   border: 1.3px solid #BAB3A1;
   border-bottom: none;
@@ -128,7 +108,7 @@ ul.zTabs.row1 li.currentWithSecondRow a,
 ul.zTabs.row1 li.currentWithSecondRow span,
 ul.zTabs.row1 li.overflowCurrentWithSecondRow a,
 ul.zTabs.row1 li.overflowCurrentWithSecondRow span {
-  background: #5fbad3;
+  background: #37aac8;
 }
 ul.zTabs li.pending a {
   color: #b3b3b3;

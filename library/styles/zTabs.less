@@ -1,41 +1,32 @@
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++  zTabs STYLES  ++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-The styles below are the core styles which contribute to the look and 
-feel for zTabs, at least for the styling approach we've taken. zTabs is
-pretty flexible, and can accomodate a lot of different styling decisions.
-
-The other styles (background images, theme specific, etc.) are in the 
-theme.css file.
-
--CWS Jun 07, 2011
-
-LESS version started by Kate Green 8/2012
-*/
+/*********
+ ** zTabs LESS Stylesheet
+ **
+ ** Instructions
+ *********/
 
 /* Customizable Variables */
 @one-em: 13px;
 @default-font-size: @one-em * 1.2;
-@bg: #87cbde; // current subrows
+@header: #d7eef4; // base color from header
 @text-color: #ffffff;
 @tab-rows: 1;
-@gradient: true;
+@gradient: true; // true || false
+@color-direction: 'darken'; // lighten || darken
 
-/* Other Variables */
-// These depend on the above variables.
-@row1-bg: darken(@bg, 10%);
-@row2-bg: darken(@bg, 20%);
-@row3-bg: #000;
-@row4-bg: #000;
-@row5-bg: #000;
-@hover-bg: darken(@bg, 15%);
+/* Other Veraibles */
+@bg: darken(@header,30%);
+@row1-bg: darken(@header,40%);
+@row2-bg: darken(@header,60%);
+@hover-bg: darken(@header,50%);
 @pending-color: darken(@hover-color, 30%);
 @hover-color: lighten(@text-color, 90%);
 @border: #BAB3A1;
 @row-height: @one-em * 2.4;
+
+/* Gradient */
+@color: @row1-bg;
+@mid-color: darken(@header,20%);
+@light-color: @header;
 
 // I use this only in @default-tab-padding since it comes with
 // a variable attached.
@@ -50,9 +41,7 @@ LESS version started by Kate Green 8/2012
 @default-border-radius: @one-em * .6;
 
 // Three stop color gradient
-.three-step-gradient(@color) when (@gradient = true) {
-	@mid-color: lighten(@color, 15%);
-	@light-color: lighten(@color, 30%);
+.three-step-gradient() when (@gradient = true) {
 	background: @color; /* Old browsers */
 	background: -moz-linear-gradient(top, @light-color 0%, @mid-color 40%, @color 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@light-color), color-stop(40%,@mid-color), color-stop(100%,@color)); /* Chrome,Safari4+ */
@@ -62,7 +51,7 @@ LESS version started by Kate Green 8/2012
 	background: linear-gradient(to bottom, @light-color 0%,@mid-color 40%,@color 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@light-color', endColorstr='@color',GradientType=0 ); /* IE6-9 */
 }
-.three-step-gradient(@color) when (@gradient = false) {
+.three-step-gradient() when (@gradient = false) {
 	// nothing
 }
 
@@ -201,10 +190,10 @@ ul.row1 {
 	/* This sits on top of tabNavigation's bg, and forms the left corner
 	of the .row1 background. *
 	background: url('../images/menu_bar_left.gif') no-repeat top left; */
-	.three-step-gradient(@row1-bg);
+	.three-step-gradient();
 } 
 ul.row2 {
-	.three-step-gradient(@row2-bg); /* url('../images/second_row_bg.gif') no-repeat top left;*/
+ /* url('../images/second_row_bg.gif') no-repeat top left;*/
 } 
 ul.row3, 
 ul.row4, 
