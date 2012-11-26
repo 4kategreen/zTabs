@@ -240,6 +240,8 @@ ul.zTabs li.disableHover:hover span {
 	OVERFLOW TAB STYLES
 
 	This is used when there are too many tabs to display at once, and an overflow tab has been created. The tabs which have overflown aren't removed from the DOM, they're just hidden.
+
+	This content isn't read by a screen reader, but is shown in the select for the overflow tab. Does a screen reader have access to this select in a similar fashion as the other tabs? If not, these tabs should be hidden in a more accessible manner? -K
 *******/
 .hiddenTab {
 	display: none;
