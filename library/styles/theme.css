@@ -76,7 +76,7 @@ body.fullheight #pageWrapper {
 
 #tabNavigation {
 	position: relative; /* for setting relative to the bodywrapper */
-	z-index:5;
+	z-index:25;
 }
 
 /* Optional body style, which should make the tabs span the width of the page. */

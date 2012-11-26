@@ -15,11 +15,12 @@
 @default-font-size: @one-em * 1.2;
 /* Base color from the page's header color and choice of text */
 @header: #000066;
-@text-color: #000000;
+@tab: lighten(spin(@header,330),10%);
+@text-color: #ffffff;
 /* Set to add space for subsequent rows of tabs */
 @tab-rows: 1;
 /* Gradient from header: true || false */
-@gradient: true; 
+@gradient: false; 
 /* Page width: based on existing styles from your site. */
 @page-width: @one-em * 89;
 
@@ -30,17 +31,17 @@
 /********/
 
 /* Background colors */
-@bg: darken(@header,30%);
-@row1-bg: darken(@header,40%);
-@row2-bg: darken(@header,60%);
+@bg: @tab;
+@row1-bg: darken(@tab,10%);
+@row2-bg: darken(@tab,10%);
 @subrow-bg: @row1-bg; /* Default, can be set to anything */
-@hover-bg: darken(@header,50%);
+@hover-bg: darken(@tab,10%);
 /* Text colors */
 @hover-color: lighten(@text-color, 90%);
 @pending-color: darken(@hover-color, 30%);
 /* Gradient Colors */
-@color: @row1-bg;
-@mid-color: darken(@header,20%);
+@color: @tab;
+@mid-color: mix(@tab,@header,50%);
 @light-color: @header;
 /* Other generated styles */
 @border: #BAB3A1;
@@ -225,13 +226,13 @@ ul.zTabs li span {
 ********/
 ul.zTabs li:hover a,
 ul.zTabs li:hover span {
-	.basic-tab (@hover-bg, @hover-color);
+	.basic-tab(@hover-bg, @hover-color);
 	cursor:pointer;
 }
 
 ul.zTabs li.disableHover:hover a,
 ul.zTabs li.disableHover:hover span {
-	.basic-tab (none);
+	.basic-tab();
 }
 
 /*******
@@ -259,7 +260,7 @@ ul.zTabs li.current a,
 ul.zTabs li.current span,
 ul.zTabs li.overflowCurrent a,
 ul.zTabs li.overflowCurrent span {
-	.basic-tab(white,@hover-color);
+	.basic-tab(white,black);
 }
 
 /*******
@@ -271,7 +272,7 @@ ul.zTabs li.currentWithSecondRow a,
 ul.zTabs li.currentWithSecondRow span,
 ul.zTabs li.overflowCurrentWithSecondRow a,
 ul.zTabs li.overflowCurrentWithSecondRow span {
-	.basic-tab;
+	.basic-tab(@subtab-bg,@hover-color);
 }
 
 /****
@@ -281,7 +282,7 @@ ul.zTabs.row1 li.currentWithSecondRow a,
 ul.zTabs.row1 li.currentWithSecondRow span,
 ul.zTabs.row1 li.overflowCurrentWithSecondRow a,
 ul.zTabs.row1 li.overflowCurrentWithSecondRow span {
-	background: @row1-bg;
+	background: @subtab-bg;
 }
 
 /********
