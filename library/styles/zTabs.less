@@ -14,19 +14,19 @@
 @one-em: 13px;
 @default-font-size: @one-em * 1.2;
 /* Base color from the page's header color and choice of text */
-@header: #d7eef4;
-@text-color: #ffffff;
+@header: #000066;
+@text-color: #000000;
 /* Set to add space for subsequent rows of tabs */
 @tab-rows: 1;
 /* Gradient from header: true || false */
 @gradient: true; 
-/* Which way to change color:; lighten || darken */
-@color-direction: 'darken';
+/* Which way to change color: lighten || darken. Lighten doesn't work yet. */
+@color-direction: lighten;
 /* Page width: based on existing styles from your site. */
 @page-width: @one-em * 89;
 
 /******** 
-	Other Veraibles
+	Other Variables
 
 	These variables are determined by the options set above. Changing these may adversely affect how the tabs render.
 /********/
@@ -261,7 +261,7 @@ ul.zTabs li.current a,
 ul.zTabs li.current span,
 ul.zTabs li.overflowCurrent a,
 ul.zTabs li.overflowCurrent span {
-	.basic-tab(white,#fcc000);
+	.basic-tab(white,@hover-color);
 }
 
 /*******
