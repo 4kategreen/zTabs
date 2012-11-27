@@ -2,6 +2,8 @@
  ** zTabs LESS Stylesheet
  **
  ** Instructions
+ ** Variables are contained in a separate file that needs to 
+ ** be configured for your application.
  ** 
  ** Need to talk about colors. Need to figure out how to do colors. 
  *********/
@@ -16,13 +18,13 @@
 @one-em: 13px;
 @default-font-size: @one-em * 1.2;
 /* Base color from the page's header color and choice of text */
-@header: #000066;
-@tab: lighten(spin(@header,330),10%);
+@header: #d7eef4;
+@tab: darken(@header,25%);
 @text-color: #ffffff;
 /* Set to add space for subsequent rows of tabs */
 @tab-rows: 1;
 /* Gradient from header: true || false */
-@gradient: false; 
+@gradient: true; 
 /* Page width: based on existing styles from your site. */
 @page-width: @one-em * 89;
 

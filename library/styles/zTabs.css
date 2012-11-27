@@ -24,13 +24,23 @@ ul.zTabs {
   float: left;
   width: 100%;
   height: 31.2px;
-  background-color: #004c99;
+  background-color: #73c4d9;
   border-bottom: 1.3px solid #BAB3A1;
   padding-top: 9.1px;
   position: relative;
 }
 ul.currentSubTabs {
-  background-color: #004c99;
+  background-color: #73c4d9;
+}
+ul.row1 {
+  background: #73c4d9;
+  background: -moz-linear-gradient(top,#d7eef4 0%,#a5d9e6 40%,#73c4d9 100%);
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#d7eef4),color-stop(40%,#a5d9e6),color-stop(100%,#73c4d9));
+  background: -webkit-linear-gradient(top,#d7eef4 0%,#a5d9e6 40%,#73c4d9 100%);
+  background: -o-linear-gradient(top,#d7eef4 0%,#a5d9e6 40%,#73c4d9 100%);
+  background: -ms-linear-gradient(top,#d7eef4 0%,#a5d9e6 40%,#73c4d9 100%);
+  background: linear-gradient(to bottom,#d7eef4 0%,#a5d9e6 40%,#73c4d9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@light-color',endColorstr='@color',GradientType=0);
 }
 ul.zTabs li {
   margin: 0;
@@ -63,7 +73,7 @@ ul.zTabs li span {
 }
 ul.zTabs li:hover a,
 ul.zTabs li:hover span {
-  background: #003366;
+  background: #4bb3ce;
   color: #ffffff;
   border: 1.3px solid #BAB3A1;
   border-bottom: none;
@@ -72,7 +82,7 @@ ul.zTabs li:hover span {
 }
 ul.zTabs li.disableHover:hover a,
 ul.zTabs li.disableHover:hover span {
-  background: #004c99;
+  background: #73c4d9;
   color: #ffffff;
   border: 1.3px solid #BAB3A1;
   border-bottom: none;
@@ -93,9 +103,6 @@ ul.zTabs li.overflowCurrent span {
   border: 1.3px solid #BAB3A1;
   border-bottom: none;
   height: 31.2px;
-}
-ul.zTabs li.currentWithSecondRow {
-  border-bottom: 1.3px solid #004c99;
 }
 ul.zTabs li.currentWithSecondRow a,
 ul.zTabs li.currentWithSecondRow span,
