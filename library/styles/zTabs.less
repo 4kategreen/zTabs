@@ -14,19 +14,19 @@
 	These variables set the default look and feel of the tabs. Right now, the fades from the header can be set to lighen or darken on the same color path. 
 /********/
 
-/* Size of one em, set default font size if not one em */
-@one-em: 13px;
-@default-font-size: @one-em * 1.2;
-/* Base color from the page's header color and choice of text */
-@header: #d7eef4;
-@tab: darken(@header,25%);
-@text-color: #ffffff;
-/* Set to add space for subsequent rows of tabs */
-@tab-rows: 1;
-/* Gradient from header: true || false */
-@gradient: true; 
-/* Page width: based on existing styles from your site. */
-@page-width: @one-em * 89;
+	/*@one-em: 16px; set in less php*/
+		@default-font-size: @one-em;
+
+	/* Base color from the page's header color and choice of text */
+		@header: @light-blue;
+		@tab: darken(@header,25%);
+		@text-color: #ffffff;
+
+	/* Set to add space for subsequent rows of tabs */
+		@tab-rows: 1;
+
+	/* Gradient from header: true || false */
+		@gradient: true; 
 
 /******** 
 	Other Variables
@@ -115,7 +115,7 @@ body {
 
 /* Normal #pageWrapper */
 #pageWrapper {
-	width: @page-width;
+	width: @full-width;
 }
 /* #pageWrapper for a full width site */
 body.fullwidth #pageWrapper {

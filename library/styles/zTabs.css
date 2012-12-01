@@ -1,10 +1,10 @@
 body {
-  font-size: 13px;
+  font-size: 16px;
   margin: 0;
   padding: 0;
 }
 #pageWrapper {
-  width: 1157px;
+  width: 1424px;
 }
 body.fullwidth #pageWrapper {
   width: auto;
@@ -12,7 +12,7 @@ body.fullwidth #pageWrapper {
 #nav,
 #tabNaviation {
   overflow: hidden;
-  height: 40.3px;
+  height: 49.6px;
 }
 .hiddenTabContent {
   display: none;
@@ -23,10 +23,10 @@ ul.zTabs {
   padding: 0;
   float: left;
   width: 100%;
-  height: 31.2px;
+  height: 38.4px;
   background-color: #73c4d9;
-  border-bottom: 1.3px solid #BAB3A1;
-  padding-top: 9.1px;
+  border-bottom: 1.6px solid #BAB3A1;
+  padding-top: 11.2px;
   position: relative;
 }
 ul.currentSubTabs {
@@ -51,21 +51,21 @@ ul.zTabs li {
 ul.zTabs a,
 ul.zTabs span {
   display: block;
-  line-height: 26px;
-  padding-left: 19.5px;
-  padding-right: 19.5px;
-  border-left: 1.3px solid transparent;
-  border-right: 1.3px solid transparent;
-  -moz-border-radius-topleft: 7.8px;
-  -moz-border-radius-topright: 7.8px;
-  -webkit-border-top-left-radius: 7.8px;
-  -webkit-border-top-right-radius: 7.8px;
-  border-top-left-radius: 7.8px;
-  border-top-right-radius: 7.8px;
+  line-height: 32px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-left: 1.6px solid transparent;
+  border-right: 1.6px solid transparent;
+  -moz-border-radius-topleft: 9.6px;
+  -moz-border-radius-topright: 9.6px;
+  -webkit-border-top-left-radius: 9.6px;
+  -webkit-border-top-right-radius: 9.6px;
+  border-top-left-radius: 9.6px;
+  border-top-right-radius: 9.6px;
   text-align: center;
   color: #ffffff;
   text-decoration: none;
-  font-size: 15.6px;
+  font-size: 16px;
 }
 ul.zTabs li a,
 ul.zTabs li span {
@@ -75,24 +75,24 @@ ul.zTabs li:hover a,
 ul.zTabs li:hover span {
   background: #4bb3ce;
   color: #ffffff;
-  border: 1.3px solid #BAB3A1;
+  border: 1.6px solid #BAB3A1;
   border-bottom: none;
-  height: 31.2px;
+  height: 38.4px;
   cursor: pointer;
 }
 ul.zTabs li.disableHover:hover a,
 ul.zTabs li.disableHover:hover span {
   background: #73c4d9;
   color: #ffffff;
-  border: 1.3px solid #BAB3A1;
+  border: 1.6px solid #BAB3A1;
   border-bottom: none;
-  height: 31.2px;
+  height: 38.4px;
 }
 .hiddenTab {
   display: none;
 }
 .overflowTab select {
-  width: 93.6px;
+  width: 115.2px;
 }
 ul.zTabs li.current a,
 ul.zTabs li.current span,
@@ -100,9 +100,9 @@ ul.zTabs li.overflowCurrent a,
 ul.zTabs li.overflowCurrent span {
   background: white;
   color: black;
-  border: 1.3px solid #BAB3A1;
+  border: 1.6px solid #BAB3A1;
   border-bottom: none;
-  height: 31.2px;
+  height: 38.4px;
 }
 ul.zTabs li.currentWithSecondRow a,
 ul.zTabs li.currentWithSecondRow span,
@@ -110,9 +110,9 @@ ul.zTabs li.overflowCurrentWithSecondRow a,
 ul.zTabs li.overflowCurrentWithSecondRow span {
   background: ;
   color: #ffffff;
-  border: 1.3px solid #BAB3A1;
+  border: 1.6px solid #BAB3A1;
   border-bottom: none;
-  height: 31.2px;
+  height: 38.4px;
 }
 ul.zTabs.row1 li.currentWithSecondRow a,
 ul.zTabs.row1 li.currentWithSecondRow span,
@@ -126,7 +126,7 @@ ul.zTabs li.pending a {
 ul.zTabs li a.closeTabButton,
 ul.zTabs li span.closeTabButton {
   position: absolute;
-  left: 20.8px;
+  left: 25.6px;
   background: none;
   padding-left: 0;
   padding-right: 0;
@@ -141,11 +141,11 @@ ul.zTabs li span.closeTabButton {
 }
 ul.zTabs li a.closeTabButton img,
 ul.zTabs li span.closeTabButton img {
-  margin-top: 6.5px;
+  margin-top: 8px;
 }
 ul.zTabs li a.closeTabText,
 ul.zTabs li span.closeTabText {
-  padding-left: 36.4px;
+  padding-left: 44.8px;
 }
 ul.zTabs li.disableHover a.closeTabButton,
 ul.zTabs li.disableHover span.closeTabButton {
