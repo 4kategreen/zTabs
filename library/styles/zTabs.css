@@ -12,7 +12,7 @@ body.fullwidth #pageWrapper {
 #nav,
 #tabNaviation {
   overflow: hidden;
-  height: 49.6px;
+  height: 148.8px;
 }
 .hiddenTabContent {
   display: none;
@@ -41,6 +41,12 @@ ul.row1 {
   background: -ms-linear-gradient(top,#d7eef4 0%,#a5d9e6 40%,#73c4d9 100%);
   background: linear-gradient(to bottom,#d7eef4 0%,#a5d9e6 40%,#73c4d9 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@light-color',endColorstr='@color',GradientType=0);
+}
+ul.row2 {
+  background-color: #3299b4;
+}
+ul.row3 {
+  background-color: #27778c;
 }
 ul.zTabs li {
   margin: 0;
@@ -108,17 +114,17 @@ ul.zTabs li.currentWithSecondRow a,
 ul.zTabs li.currentWithSecondRow span,
 ul.zTabs li.overflowCurrentWithSecondRow a,
 ul.zTabs li.overflowCurrentWithSecondRow span {
-  background: ;
+  background: #3299b4;
   color: #ffffff;
   border: 1.6px solid #BAB3A1;
   border-bottom: none;
   height: 38.4px;
 }
-ul.zTabs.row1 li.currentWithSecondRow a,
-ul.zTabs.row1 li.currentWithSecondRow span,
-ul.zTabs.row1 li.overflowCurrentWithSecondRow a,
-ul.zTabs.row1 li.overflowCurrentWithSecondRow span {
-  background: ;
+ul.zTabs.row2 li.currentWithSecondRow a,
+ul.zTabs.row2 li.currentWithSecondRow span,
+ul.zTabs.row2 li.overflowCurrentWithSecondRow a,
+ul.zTabs.row2 li.overflowCurrentWithSecondRow span {
+  background: #27778c;
 }
 ul.zTabs li.pending a {
   color: #b3b3b3;

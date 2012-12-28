@@ -23,7 +23,7 @@
 		@text-color: #ffffff;
 
 	/* Set to add space for subsequent rows of tabs */
-		@tab-rows: 1;
+		@tab-rows: 3;
 
 	/* Gradient from header: true || false */
 		@gradient: true; 
@@ -37,8 +37,9 @@
 /* Background colors */
 @bg: @tab;
 @row1-bg: darken(@tab,10%);
-@row2-bg: darken(@tab,10%);
-@subrow-bg: @row1-bg; /* Default, can be set to anything */
+@row2-bg: darken(@tab,20%);
+@row3-bg: darken(@tab,30%);
+@subrow-bg: darken(@row1-bg); /* Default, can be set to anything */
 @hover-bg: darken(@tab,10%);
 /* Text colors */
 @hover-color: lighten(@text-color, 90%);
@@ -173,8 +174,12 @@ ul.currentSubTabs {
 ul.row1 {
 	.three-step-gradient();
 } 
-ul.row2,
-ul.row3, 
+ul.row2 {
+	background-color: @row2-bg;
+}
+ul.row3 {
+	background-color: @row3-bg;
+}
 ul.row4, 
 ul.row5 { /* No gradient or other special styles. */ }
 
@@ -276,17 +281,17 @@ ul.zTabs li.currentWithSecondRow a,
 ul.zTabs li.currentWithSecondRow span,
 ul.zTabs li.overflowCurrentWithSecondRow a,
 ul.zTabs li.overflowCurrentWithSecondRow span {
-	.basic-tab(@subtab-bg,@hover-color);
+	.basic-tab(@row2-bg,@hover-color);
 }
 
 /****
 	Row 1 doesn't have parent rows, and Row 3+ are all the same so we only need a special background color for Row 1's tabs (which feed into the top of Row 2). See note about background v. background color under CURRENT TAB (NO SUBROWS) section.
 ****/
-ul.zTabs.row1 li.currentWithSecondRow a,
-ul.zTabs.row1 li.currentWithSecondRow span,
-ul.zTabs.row1 li.overflowCurrentWithSecondRow a,
-ul.zTabs.row1 li.overflowCurrentWithSecondRow span {
-	background: @subtab-bg;
+ul.zTabs.row2 li.currentWithSecondRow a,
+ul.zTabs.row2 li.currentWithSecondRow span,
+ul.zTabs.row2 li.overflowCurrentWithSecondRow a,
+ul.zTabs.row2 li.overflowCurrentWithSecondRow span {
+	background: @row3-bg;
 }
 
 /********
