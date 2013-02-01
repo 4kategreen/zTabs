@@ -1,9 +1,10 @@
 /*********
  ** zTabs LESS Stylesheet
+ ** 2013 Kate Green, kate@kategreen.us (github: 4kategreen)
  **
  ** Instructions
- ** Variables are contained in a separate file that needs to 
- ** be configured for your application.
+ ** Variables are below; all really are customizable, but your mileage
+ ** may vary if you mess with ones that aren't in the customizable list.
  ** 
  ** Need to talk about colors. Need to figure out how to do colors. 
  *********/
@@ -14,19 +15,30 @@
 	These variables set the default look and feel of the tabs. Right now, the fades from the header can be set to lighen or darken on the same color path. 
 /********/
 
-	/*@one-em: 16px; set in less php*/
+		@one-em: 16px; // this could be set in a global variables section
 		@default-font-size: @one-em;
-
-	/* Base color from the page's header color and choice of text */
-		@header: @light-blue;
-		@tab: darken(@header,25%);
+	/* Base color from your page's header color and choice of text. 
+		 Experiment with these to have it behave how it works best for
+		 your site.
+	*/
+		@header: #2f429a;
+		@tab: #000066;
 		@text-color: #ffffff;
 
-	/* Set to add space for subsequent rows of tabs */
+	/* Set to add space for subsequent rows of tabs. Not necessary, but
+		 it means the body isn't moved down when a new row is opened. */
 		@tab-rows: 3;
 
 	/* Gradient from header: true || false */
 		@gradient: true; 
+
+	/* Background colors, these are just defaults. Please experiment */
+	@row2-bg: screen(@tab,@row3-bg);
+	@row3-bg: #a1a1d5;
+	@hover-bg: lighten(@tab,10%);
+	/* Text colors */
+	@hover-color: lighten(@text-color, 90%);
+	@pending-color: darken(@hover-color, 30%);
 
 /******** 
 	Other Variables
@@ -34,24 +46,14 @@
 	These variables are determined by the options set above. Changing these may adversely affect how the tabs render.
 /********/
 
-/* Background colors */
-@bg: @tab;
-@row1-bg: darken(@tab,10%);
-@row2-bg: darken(@tab,20%);
-@row3-bg: darken(@tab,30%);
-@subrow-bg: darken(@row1-bg); /* Default, can be set to anything */
-@hover-bg: darken(@tab,10%);
-/* Text colors */
-@hover-color: lighten(@text-color, 90%);
-@pending-color: darken(@hover-color, 30%);
-/* Gradient Colors */
+/* Gradient Colors: only used if gradient is set */
 @color: @tab;
 @mid-color: mix(@tab,@header,50%);
 @light-color: @header;
 /* Other generated styles */
 @border: #BAB3A1;
 @row-height: @one-em * 2.4;
-@default-border: (@one-em * .1) solid @bg;
+@default-border: (@one-em * .1) solid @tab;
 
 /********
 	Default styles that are used throughout
@@ -59,7 +61,7 @@
 	These styles are functions that set default tabs, the gradients, and other recurring themes throughout the application
 /********/
 // Basic tab style to be used below
-.basic-tab (@bg: @bg, @color: @text-color) {
+.basic-tab (@bg: @tab, @color: @text-color) {
 	background: @bg;
 	color: @color;
 	border: @one-em * .1 solid @border;
@@ -68,7 +70,7 @@
 }
 
 @default-tab-padding: @one-em * 1.5;
-.default-tab-border (@bg) {
+.default-tab-border (@tab) {
 	border-left: @default-border;
 	border-right: @default-border;
 }
@@ -116,7 +118,7 @@ body {
 
 /* Normal #pageWrapper */
 #pageWrapper {
-	width: @full-width;
+	width: 100%;
 }
 /* #pageWrapper for a full width site */
 body.fullwidth #pageWrapper {
@@ -157,7 +159,7 @@ ul.zTabs {
 	width:100%;
 	height: @row-height;
 	/* Add colors */
-	background-color: @bg;
+	background-color: @tab;
 	border-bottom: @one-em * .1 solid @border; 
 	/* Spacing */
 	padding-top: @one-em * .7;
@@ -167,7 +169,7 @@ ul.zTabs {
 
 /* Affects all visible sub rows: rows 2+ */
 ul.currentSubTabs { 
-	background-color: @bg; 
+	background-color: @tab; 
 }
 
 /* Styles for specific rows. Need to add more here before */
